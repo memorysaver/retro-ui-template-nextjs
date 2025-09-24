@@ -44,37 +44,40 @@
 
 ## Phase 3.1: Setup
 - [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T002 Initialize project dependencies using `pnpm install`
+- [ ] T003 [P] Configure linting and formatting tools (ESLint, Prettier)
+- [ ] T004 [P] Add required package.json scripts per constitution
 
 ## Phase 3.2: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.3
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
-- [ ] T004 [P] Contract test POST /api/users in tests/contract/test_users_post.py
-- [ ] T005 [P] Contract test GET /api/users/{id} in tests/contract/test_users_get.py
-- [ ] T006 [P] Integration test user registration in tests/integration/test_registration.py
-- [ ] T007 [P] Integration test auth flow in tests/integration/test_auth.py
+- [ ] T005 [P] Component test for Button in __tests__/components/Button.test.tsx
+- [ ] T006 [P] API route test for /api/users in __tests__/api/users.test.ts
+- [ ] T007 [P] Integration test for user flow in __tests__/integration/user-flow.test.ts
+- [ ] T008 [P] Page test for registration in __tests__/pages/register.test.tsx
 
 ## Phase 3.3: Core Implementation (ONLY after tests are failing)
-- [ ] T008 [P] User model in src/models/user.py
-- [ ] T009 [P] UserService CRUD in src/services/user_service.py
-- [ ] T010 [P] CLI --create-user in src/cli/user_commands.py
-- [ ] T011 POST /api/users endpoint
-- [ ] T012 GET /api/users/{id} endpoint
-- [ ] T013 Input validation
-- [ ] T014 Error handling and logging
+- [ ] T009 [P] User type definitions in lib/types/user.ts
+- [ ] T010 [P] UserService utilities in lib/services/user-service.ts
+- [ ] T011 [P] Button component in components/ui/Button.tsx
+- [ ] T012 POST /api/users API route in app/api/users/route.ts
+- [ ] T013 GET /api/users/[id] API route in app/api/users/[id]/route.ts
+- [ ] T014 Registration page in app/register/page.tsx
+- [ ] T015 Input validation using Zod schemas
+- [ ] T016 Error handling and logging
 
 ## Phase 3.4: Integration
-- [ ] T015 Connect UserService to DB
-- [ ] T016 Auth middleware
-- [ ] T017 Request/response logging
-- [ ] T018 CORS and security headers
+- [ ] T017 Connect API routes to database/storage
+- [ ] T018 Authentication middleware
+- [ ] T019 Request/response logging
+- [ ] T020 CORS and security headers in middleware.ts
 
 ## Phase 3.5: Polish
-- [ ] T019 [P] Unit tests for validation in tests/unit/test_validation.py
-- [ ] T020 Performance tests (<200ms)
-- [ ] T021 [P] Update docs/api.md
-- [ ] T022 Remove duplication
-- [ ] T023 Run manual-testing.md
+- [ ] T021 [P] Unit tests for utility functions in __tests__/lib/utils.test.ts
+- [ ] T022 Performance tests using Lighthouse CI
+- [ ] T023 [P] Update README.md with new features
+- [ ] T024 Remove code duplication and optimize bundle
+- [ ] T025 Run build and type checking with `pnpm build`
+- [ ] T026 Run linting with `pnpm lint`
 
 ## Dependencies
 - Tests (T004-T007) before implementation (T008-T014)

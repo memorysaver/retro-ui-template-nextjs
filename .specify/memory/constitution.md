@@ -1,50 +1,74 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: [CONSTITUTION_VERSION] → 1.0.0
+Modified principles: All principles created (initial constitution)
+Added sections: Core Principles, Dependency Management, Development Workflow, Governance
+Removed sections: None (initial creation)
+Templates requiring updates: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md
+Follow-up TODOs: None
+-->
+
+# Retro UI Template Next.js Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. PNPM Package Management
+All dependencies MUST be managed exclusively through pnpm. This ensures consistent lock file behavior, efficient disk usage through content-addressed storage, and proper workspace support for monorepo scenarios.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**Rationale**: pnpm provides superior dependency management with strict peer dependency resolution, faster installation times, and better security through content verification.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. CLI-First Development
+Every development task MUST be accessible via CLI commands defined in package.json scripts. All build, test, lint, and development operations MUST be scriptable and reproducible across environments.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: CLI-first approach ensures consistent development experience, enables automation, and provides clear documentation of available operations.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Next.js Framework Adherence
+Development MUST follow Next.js conventions and best practices. Use App Router, TypeScript, and Turbopack where applicable. All pages and components MUST follow Next.js file-system routing conventions.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Following framework conventions reduces cognitive overhead, improves maintainability, and leverages community best practices and tooling.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Modern JavaScript Standards
+Code MUST use modern JavaScript/TypeScript features including ES modules, async/await, and proper TypeScript typing. No legacy CommonJS or callback patterns except where required by dependencies.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: Modern standards improve code quality, developer experience, and long-term maintainability.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Component-Driven UI Development
+UI components MUST be modular, reusable, and follow single responsibility principle. Use Radix UI primitives and Tailwind CSS for styling. Components MUST be composable and properly typed.
+
+**Rationale**: Component-driven development improves reusability, testability, and maintainability of UI code.
+
+## Dependency Management
+
+All package operations MUST use pnpm exclusively:
+- Installing packages: `pnpm add <package>` or `pnpm add -D <package>`
+- Removing packages: `pnpm remove <package>`
+- Installing all dependencies: `pnpm install`
+- Running scripts: `pnpm run <script>` or `pnpm <script>`
+
+Package.json scripts MUST be defined for all common development tasks and MUST work consistently across all environments.
+
+## Development Workflow
+
+### Required Scripts
+All projects MUST implement these package.json scripts:
+- `dev`: Start development server with hot reload
+- `build`: Create production build
+- `start`: Start production server
+- `lint`: Run code linting and formatting checks
+- `type-check`: Run TypeScript type checking (if applicable)
+
+### Code Quality
+- ESLint MUST be configured and pass on all code
+- TypeScript MUST be used for type safety
+- All builds MUST complete without errors or warnings
+- Code formatting MUST be consistent and automated
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices and decisions. All pull requests and code reviews MUST verify compliance with these principles.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Amendment Process**: Constitution changes require documentation of rationale, impact assessment, and updating of dependent templates and documentation.
+
+**Compliance Review**: All feature implementations MUST be evaluated against constitutional principles. Deviations require explicit justification and approval.
+
+**Version**: 1.0.0 | **Ratified**: 2025-09-25 | **Last Amended**: 2025-09-25

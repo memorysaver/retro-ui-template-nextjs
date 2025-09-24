@@ -12,6 +12,11 @@
    → Detect Project Type from context (web=frontend+backend, mobile=app+api)
    → Set Structure Decision based on project type
 3. Fill the Constitution Check section based on the content of the constitution document.
+   → Verify PNPM usage requirement (Principle I)
+   → Confirm CLI script availability (Principle II)
+   → Check Next.js framework adherence (Principle III)
+   → Validate modern JavaScript standards (Principle IV)
+   → Ensure component-driven UI approach (Principle V)
 4. Evaluate Constitution Check section below
    → If violations exist: Document in Complexity Tracking
    → If no justification possible: ERROR "Simplify approach first"
@@ -34,11 +39,11 @@
 [Extract from feature spec: primary requirement + technical approach from research]
 
 ## Technical Context
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
+**Language/Version**: [e.g., TypeScript 5.x, JavaScript ES2022 or NEEDS CLARIFICATION]  
+**Primary Dependencies**: [e.g., React, Next.js, Radix UI, Tailwind CSS or NEEDS CLARIFICATION]  
 **Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Testing**: [e.g., Jest, Vitest, Playwright, Testing Library or NEEDS CLARIFICATION]  
+**Target Platform**: [e.g., Web browsers, Node.js, Vercel, Netlify or NEEDS CLARIFICATION]
 **Project Type**: [single/web/mobile - determines source structure]  
 **Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
 **Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
@@ -209,4 +214,4 @@ ios/ or android/
 - [ ] Complexity deviations documented
 
 ---
-*Based on Constitution v2.1.1 - See `/memory/constitution.md`*
+*Based on Constitution v1.0.0 - See `/memory/constitution.md`*
