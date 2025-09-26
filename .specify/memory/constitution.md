@@ -1,9 +1,9 @@
 <!--
 Sync Impact Report:
-Version change: [CONSTITUTION_VERSION] → 1.0.0
-Modified principles: All principles created (initial constitution)
-Added sections: Core Principles, Dependency Management, Development Workflow, Governance
-Removed sections: None (initial creation)
+Version change: 1.0.0 → 1.0.1
+Modified principles: Enhanced PNPM CLI requirement in Principle I and Dependency Management
+Added sections: None
+Removed sections: None
 Templates requiring updates: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md
 Follow-up TODOs: None
 -->
@@ -12,10 +12,10 @@ Follow-up TODOs: None
 
 ## Core Principles
 
-### I. PNPM Package Management
-All dependencies MUST be managed exclusively through pnpm. This ensures consistent lock file behavior, efficient disk usage through content-addressed storage, and proper workspace support for monorepo scenarios.
+### I. PNPM-Exclusive CLI Operations
+All package management and project workflow commands MUST be executed using pnpm exclusively. This includes dependency management, script execution, and all development lifecycle operations (dev, build, lint, type-check, test, start).
 
-**Rationale**: pnpm provides superior dependency management with strict peer dependency resolution, faster installation times, and better security through content verification.
+**Rationale**: pnpm provides superior dependency management with strict peer dependency resolution, faster installation times, better security through content verification, and ensures consistent execution environment across all development tasks.
 
 ### II. CLI-First Development
 Every development task MUST be accessible via CLI commands defined in package.json scripts. All build, test, lint, and development operations MUST be scriptable and reproducible across environments.
@@ -39,23 +39,24 @@ UI components MUST be modular, reusable, and follow single responsibility princi
 
 ## Dependency Management
 
-All package operations MUST use pnpm exclusively:
+All package operations and workflow commands MUST use pnpm exclusively:
 - Installing packages: `pnpm add <package>` or `pnpm add -D <package>`
 - Removing packages: `pnpm remove <package>`
 - Installing all dependencies: `pnpm install`
 - Running scripts: `pnpm run <script>` or `pnpm <script>`
+- Development workflows: `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm type-check`, `pnpm test`, `pnpm start`
 
-Package.json scripts MUST be defined for all common development tasks and MUST work consistently across all environments.
+Package.json scripts MUST be defined for all common development tasks and MUST work consistently across all environments. Never use npm, yarn, or direct node commands when a pnpm equivalent exists.
 
 ## Development Workflow
 
 ### Required Scripts
-All projects MUST implement these package.json scripts:
-- `dev`: Start development server with hot reload
-- `build`: Create production build
-- `start`: Start production server
-- `lint`: Run code linting and formatting checks
-- `type-check`: Run TypeScript type checking (if applicable)
+All projects MUST implement these package.json scripts (executed via pnpm):
+- `dev`: Start development server with hot reload (`pnpm dev`)
+- `build`: Create production build (`pnpm build`)
+- `start`: Start production server (`pnpm start`)
+- `lint`: Run code linting and formatting checks (`pnpm lint`)
+- `type-check`: Run TypeScript type checking (`pnpm type-check`)
 
 ### Code Quality
 - ESLint MUST be configured and pass on all code
@@ -71,4 +72,4 @@ This constitution supersedes all other development practices and decisions. All 
 
 **Compliance Review**: All feature implementations MUST be evaluated against constitutional principles. Deviations require explicit justification and approval.
 
-**Version**: 1.0.0 | **Ratified**: 2025-09-25 | **Last Amended**: 2025-09-25
+**Version**: 1.0.1 | **Ratified**: 2025-09-25 | **Last Amended**: 2025-09-26
